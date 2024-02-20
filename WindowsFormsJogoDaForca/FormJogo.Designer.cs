@@ -36,7 +36,7 @@
             // lbPalavraSecreta
             // 
             this.lbPalavraSecreta.AutoSize = true;
-            this.lbPalavraSecreta.Location = new System.Drawing.Point(161, 90);
+            this.lbPalavraSecreta.Location = new System.Drawing.Point(46, 44);
             this.lbPalavraSecreta.Name = "lbPalavraSecreta";
             this.lbPalavraSecreta.Size = new System.Drawing.Size(35, 13);
             this.lbPalavraSecreta.TabIndex = 0;
@@ -44,14 +44,17 @@
             // 
             // txbTentativa
             // 
-            this.txbTentativa.Location = new System.Drawing.Point(153, 285);
+            this.txbTentativa.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbTentativa.Location = new System.Drawing.Point(43, 239);
+            this.txbTentativa.MaxLength = 1;
             this.txbTentativa.Name = "txbTentativa";
-            this.txbTentativa.Size = new System.Drawing.Size(230, 20);
+            this.txbTentativa.Size = new System.Drawing.Size(38, 49);
             this.txbTentativa.TabIndex = 1;
+            this.txbTentativa.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btnVerificarLetra
             // 
-            this.btnVerificarLetra.Location = new System.Drawing.Point(389, 282);
+            this.btnVerificarLetra.Location = new System.Drawing.Point(114, 249);
             this.btnVerificarLetra.Name = "btnVerificarLetra";
             this.btnVerificarLetra.Size = new System.Drawing.Size(75, 23);
             this.btnVerificarLetra.TabIndex = 2;
@@ -63,7 +66,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(423, 301);
             this.Controls.Add(this.btnVerificarLetra);
             this.Controls.Add(this.txbTentativa);
             this.Controls.Add(this.lbPalavraSecreta);

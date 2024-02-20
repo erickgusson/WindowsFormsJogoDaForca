@@ -21,6 +21,8 @@ namespace WindowsFormsJogoDaForca
         private void CarregarDados()
         {
 
+            listViewCadastro.Items.Clear();
+
             string conexaoString = "server=62.72.62.1;user=u687609827_alunos;database=u687609827_TI21;port=3306;password=@Aluno12345";
 
             using (MySqlConnection conexao = new MySqlConnection(conexaoString))
@@ -60,7 +62,7 @@ namespace WindowsFormsJogoDaForca
         {
 
             listViewCadastro.View = View.Details;
-            listViewCadastro.Columns.Add("palavras", 255);
+            listViewCadastro.Columns.Add("Palavras", 255);
 
             CarregarDados();
 
@@ -96,7 +98,7 @@ namespace WindowsFormsJogoDaForca
                 using (MySqlConnection conexao = new MySqlConnection(conexaoString))
                 {
 
-                    string scriptSQL = "INSERT INTO tb_palavras (palavra) VALUEs (@valorPalavra)";
+                    string scriptSQL = "INSERT INTO tb_palavras (palavra) VALUES (@valorPalavra)";
 
                     using (MySqlCommand comando = new MySqlCommand(scriptSQL, conexao))
                     {
@@ -127,7 +129,7 @@ namespace WindowsFormsJogoDaForca
             }
         }
 
-        private void RemoverDados(int id)
+        private void RemoverDados()
         {
 
             string conexaoString = "server=62.72.62.1;user=u687609827_alunos;database=u687609827_TI21;port=3306;password=@Aluno12345";
@@ -137,27 +139,29 @@ namespace WindowsFormsJogoDaForca
                 using (MySqlConnection conexao = new MySqlConnection(conexaoString))
                 {
 
-                    string scriptSQL = "INSERT INTO tb_palavras (palavra) VALUEs (@valorPalavra)";
+                    string scriptSQL = "DELETE FROM tb_palavras WHERE id = (@idRemovido)";
 
                     using (MySqlCommand comando = new MySqlCommand(scriptSQL, conexao))
                     {
 
                         conexao.Open();
 
-                        //comando.Parameters.AddWithValue("@valorPalavra");
+                        comando.Parameters.AddWithValue("@idRemovido", txbIDRemover.Text);
 
                         int linhasAfetadas = comando.ExecuteNonQuery();
 
                         if (linhasAfetadas > 0)
                         {
 
-                            MessageBox.Show("Palavra cadastrar com suesso");
+                            MessageBox.Show("Palavra removida com suesso");
 
                         }
 
                     }
 
                     conexao.Close();
+
+                    CarregarDados();
 
                 }
 
@@ -168,18 +172,62 @@ namespace WindowsFormsJogoDaForca
             }
         }
 
+        private void AtualizarDados()
+        {
+
+            string conexaoString = "server=62.72.62.1;user=u687609827_alunos;database=u687609827_TI21;port=3306;password=@Aluno12345";
+
+            try
+            {
+                using (MySqlConnection conexao = new MySqlConnection(conexaoString))
+                {
+
+                    string scriptSQL = "UPDATE tb_palavras SET palavra = (@palavraAtualizada) WHERE id = (@idAtualizado)";
+
+                    using (MySqlCommand comando = new MySqlCommand(scriptSQL, conexao))
+                    {
+
+                        conexao.Open();
+
+                        comando.Parameters.AddWithValue("@palavraAtualizada", txbPalavraAtualizada.Text);
+                        comando.Parameters.AddWithValue("@idAtualizado", txbIDAtualizar.Text);
+
+                        int linhasAfetadas = comando.ExecuteNonQuery();
+
+                        if (linhasAfetadas > 0)
+                        {
+
+                            MessageBox.Show("Palavra atualizada com suesso");
+
+                        }
+
+                    }
+
+                    conexao.Close();
+
+                    CarregarDados();
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao cadastrar informação: " + ex.Message);
+            }
+        }
         private void btnRemover_Click(object sender, EventArgs e)
         {
 
-            int selecionado = 0;
-
-            RemoverDados(selecionado);
+            RemoverDados();
 
         }
 
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
 
+            AtualizarDados();
+
         }
+
     }
 }

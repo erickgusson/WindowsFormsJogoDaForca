@@ -33,6 +33,9 @@
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.btnRemover = new System.Windows.Forms.Button();
             this.btnAtualizar = new System.Windows.Forms.Button();
+            this.txbIDRemover = new System.Windows.Forms.TextBox();
+            this.txbPalavraAtualizada = new System.Windows.Forms.TextBox();
+            this.txbIDAtualizar = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // listViewCadastro
@@ -50,6 +53,7 @@
             this.txbCadastro.Name = "txbCadastro";
             this.txbCadastro.Size = new System.Drawing.Size(214, 20);
             this.txbCadastro.TabIndex = 1;
+            this.txbCadastro.Text = "Nova palavra";
             // 
             // btnCadastrar
             // 
@@ -73,7 +77,7 @@
             // 
             // btnAtualizar
             // 
-            this.btnAtualizar.Location = new System.Drawing.Point(136, 276);
+            this.btnAtualizar.Location = new System.Drawing.Point(232, 305);
             this.btnAtualizar.Name = "btnAtualizar";
             this.btnAtualizar.Size = new System.Drawing.Size(90, 23);
             this.btnAtualizar.TabIndex = 4;
@@ -81,11 +85,38 @@
             this.btnAtualizar.UseVisualStyleBackColor = true;
             this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
             // 
+            // txbIDRemover
+            // 
+            this.txbIDRemover.Location = new System.Drawing.Point(12, 279);
+            this.txbIDRemover.Name = "txbIDRemover";
+            this.txbIDRemover.Size = new System.Drawing.Size(214, 20);
+            this.txbIDRemover.TabIndex = 5;
+            this.txbIDRemover.Text = "ID";
+            // 
+            // txbPalavraAtualizada
+            // 
+            this.txbPalavraAtualizada.Location = new System.Drawing.Point(92, 308);
+            this.txbPalavraAtualizada.Name = "txbPalavraAtualizada";
+            this.txbPalavraAtualizada.Size = new System.Drawing.Size(134, 20);
+            this.txbPalavraAtualizada.TabIndex = 6;
+            this.txbPalavraAtualizada.Text = "Palavra Atualizada";
+            // 
+            // txbIDAtualizar
+            // 
+            this.txbIDAtualizar.Location = new System.Drawing.Point(12, 308);
+            this.txbIDAtualizar.Name = "txbIDAtualizar";
+            this.txbIDAtualizar.Size = new System.Drawing.Size(76, 20);
+            this.txbIDAtualizar.TabIndex = 7;
+            this.txbIDAtualizar.Text = "ID";
+            // 
             // FormCadastrar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(334, 311);
+            this.ClientSize = new System.Drawing.Size(334, 390);
+            this.Controls.Add(this.txbIDAtualizar);
+            this.Controls.Add(this.txbPalavraAtualizada);
+            this.Controls.Add(this.txbIDRemover);
             this.Controls.Add(this.btnAtualizar);
             this.Controls.Add(this.btnRemover);
             this.Controls.Add(this.btnCadastrar);
@@ -106,5 +137,8 @@
         private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.Button btnRemover;
         private System.Windows.Forms.Button btnAtualizar;
+        private System.Windows.Forms.TextBox txbIDRemover;
+        private System.Windows.Forms.TextBox txbPalavraAtualizada;
+        private System.Windows.Forms.TextBox txbIDAtualizar;
     }
 }
